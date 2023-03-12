@@ -143,6 +143,193 @@ for i in range (0,302):
 
 
 
+#datos1.to_excel("Datos Categorizados.xlsx", index=False)
+
+
+# Age vs Num
+etiquetas=["Joven Adulto","Adultos","Adultos Mayores","Tercera Edad"]
+y1=[4,38,75,20]
+y0=[10,86,43,21]
+
+Co=np.arange(len(y1))
+Ancho=0.30
+
+fig, ax=plt.subplots()
+ax.bar(Co-Ancho/2,y1,width=Ancho,color='#53B8B4', label="1")
+ax.bar(Co+Ancho/2,y0,width=Ancho,color='#6ACDE5', label="0")
+
+ax.set_title("Age vs Num", fontsize = 18)
+ax.set_ylabel("Numero de personas")
+ax.set_xlabel("Categorias de la Edad")
+ax.set_xticks(Co)
+ax.set_xticklabels(etiquetas)
+plt.legend(loc='best')
+plt.show()
+
+
+
+#Trestbps vs Num
+etiquetas=["P.A Normal","Prehip.","Hip. etapa 1","Hip. etapa 2","Crisis Hip."]
+y1=[23,34,26,52,2]
+y0=[37,38,41,44,0]
+
+Co=np.arange(len(y1))
+Ancho=0.30
+
+fig, ax=plt.subplots()
+ax.bar(Co-Ancho/2,y1,width=Ancho,color="#98fb98", label="1")
+ax.bar(Co+Ancho/2,y0,width=Ancho,color="#6DC36D", label="0")
+
+ax.set_title("Trestbps vs Num", fontsize = 18)
+ax.set_ylabel("Numero de personas")
+ax.set_xlabel("Categorias de Trestbps")
+ax.set_xticks(Co)
+ax.set_xticklabels(etiquetas)
+plt.legend(loc='best')
+plt.show()
+
+
+#"Chol" vs Num
+etiquetas=["Deseable","Elevado","Muy Elevado"]
+y1=[20,96,21]
+y0=[28,109,23]
+
+Co=np.arange(len(y1))
+Ancho=0.30
+
+fig, ax=plt.subplots()
+ax.bar(Co-Ancho/2,y1,width=Ancho,color='#53B8B4', label="1")
+ax.bar(Co+Ancho/2,y0,width=Ancho,color='#6ACDE5', label="0")
+
+ax.set_title("Chol vs Num", fontsize = 18)
+ax.set_ylabel("Numero de personas")
+ax.set_xlabel("Categorias de Chol")
+ax.set_xticks(Co)
+ax.set_xticklabels(etiquetas)
+plt.legend(loc='best')
+plt.show()
+
+
+#"Thalach" vs Num
+etiquetas=["Reposo","Ejercicio Aerobico","Ejercicio Intenso"]
+y1=[61,66,10]
+y0=[22,86,51]
+
+Co=np.arange(len(y1))
+Ancho=0.30
+
+fig, ax=plt.subplots()
+ax.bar(Co-Ancho/2,y1,width=Ancho,color="#98fb98", label="1")
+ax.bar(Co+Ancho/2,y0,width=Ancho,color="#6DC36D", label="0")
+
+ax.set_title("Thalach vs Num", fontsize = 18)
+ax.set_ylabel("Numero de personas")
+ax.set_xlabel("Categorias de Thalach")
+ax.set_xticks(Co)
+ax.set_xticklabels(etiquetas)
+plt.legend(loc='best')
+plt.show()
+
+
+#"Oldpeak" vs Num
+etiquetas=["Normal","Ligeramente","Moderadamente","Altamente"]
+y1=[46,41,32,18]
+y0=[115,36,7,2]
+
+Co=np.arange(len(y1))
+Ancho=0.30
+
+fig, ax=plt.subplots()
+ax.bar(Co-Ancho/2,y1,width=Ancho,color='#53B8B4', label="1")
+ax.bar(Co+Ancho/2,y0,width=Ancho,color='#6ACDE5', label="0")
+
+ax.set_title("Oldpeak vs Num", fontsize = 18)
+ax.set_ylabel("Numero de personas")
+ax.set_xlabel("Categorias de Oldpeak")
+ax.set_xticks(Co)
+ax.set_xticklabels(etiquetas)
+plt.legend(loc='best')
+plt.show()
+
+
+#"Sexo" vs Num
+etiquetas=["Hombre","Mujer"]
+y1=[112,25]
+y0=[89,71]
+
+Co=np.arange(len(y1))
+Ancho=0.30
+
+fig, ax=plt.subplots()
+ax.bar(Co-Ancho/2,y1,width=Ancho,color='#53B8B4', label="1")
+ax.bar(Co+Ancho/2,y0,width=Ancho,color='#6ACDE5', label="0")
+
+ax.set_title("Sexo vs Num", fontsize = 18)
+ax.set_ylabel("Numero de personas")
+ax.set_xticks(Co)
+ax.set_xticklabels(etiquetas)
+plt.legend(loc='best')
+plt.show()
+
+
+
+
+
+#Diagrama de PIE
+#Age   
+fig, ax = plt.subplots()
+etiquetas = ["Joven Adulto","Adultos","Adultos Mayores","Tercera Edad"]
+valores = [(datos1["Age"]==1).sum(),(datos1["Age"]==2).sum(),(datos1["Age"]==3).sum(),(datos1["Age"]==4).sum()]
+colores=["#87CEFA", "#0079A5","#6ACDE5","#C1E9FC"]
+ax.pie(valores, labels = etiquetas ,colors=colores, autopct='%1.1f%%')
+plt.title("Age (Categórica)", fontsize = 18)
+plt.show() 
+
+#"Trestbps"
+fig, ax = plt.subplots()
+etiquetas = ["Presión arterial normal","Prehipertensión","Hipertensión etapa 1","Hipertensión etapa 2","Crisis Hipertensiva"]
+valores = [(datos1["Trestbps"]==1).sum(),(datos1["Trestbps"]==2).sum(),(datos1["Trestbps"]==3).sum(),(datos1["Trestbps"]==4).sum(),(datos1["Trestbps"]==5).sum()]
+colores=["#3DED97", "#98fb98","#3CB043","#6DC36D","#234F1E"]
+ax.pie(valores, labels = etiquetas ,colors=colores, autopct='%1.1f%%')
+plt.title("Trestbps (Categórica)", fontsize = 18)
+plt.show() 
+
+#"Chol"
+fig, ax = plt.subplots()
+etiquetas = ["Deseable","Elevado","Muy Elevado"]
+valores = [(datos1["Chol"]==1).sum(),(datos1["Chol"]==2).sum(),(datos1["Chol"]==3).sum()]
+colores=["#87CEFA", "#0079A5","#C1E9FC"]
+ax.pie(valores, labels = etiquetas ,colors=colores, autopct='%1.1f%%')
+plt.title("Chol (Categórica)", fontsize = 18)
+plt.show() 
+
+#"Thalach"
+fig, ax = plt.subplots()
+etiquetas = ["Reposo","Ejercicio Aerobico","Ejercicio Intenso"]
+valores = [(datos1["Thalach"]==1).sum(),(datos1["Thalach"]==2).sum(),(datos1["Thalach"]==3).sum()]
+colores=["#3DED97", "#98fb98","#3CB043"]
+ax.pie(valores, labels = etiquetas ,colors=colores, autopct='%1.1f%%')
+plt.title("Thalach (Categórica)", fontsize = 18)
+plt.show() 
+
+#"Oldpeak"
+fig, ax = plt.subplots()
+etiquetas = ["Normal","Ligeramente Elevado","Moderadamente Elevado","Altamente Elevado"]
+valores = [(datos1["Age"]==1).sum(),(datos1["Age"]==2).sum(),(datos1["Age"]==3).sum(),(datos1["Age"]==4).sum()]
+colores=["#87CEFA", "#0079A5","#6ACDE5","#C1E9FC"]
+ax.pie(valores, labels = etiquetas ,colors=colores, autopct='%1.1f%%')
+plt.title("Oldpeak (Categórica)", fontsize = 18)
+plt.show() 
+
+
+
+
+
+
+
+
+
+
 
 
 
