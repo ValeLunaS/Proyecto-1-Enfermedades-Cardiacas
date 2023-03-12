@@ -69,7 +69,13 @@ for i in scores:
     #grafica.set_title(i)
     
 plt.show()
-
+#Correlaciones
+for i in scores:
+    for j in scores:
+        fig, ax = plt.subplots()
+        ax.scatter(datos[i],datos[j])
+        ax.set_title (i + " VS " + j)
+        plt.show()
 # Estadisticas descriptivas
 print(datos.min())
 print(datos.mean())
