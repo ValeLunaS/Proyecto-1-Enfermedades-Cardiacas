@@ -70,6 +70,12 @@ for i in scores:
     
 plt.show()
 
+# Estadisticas descriptivas
+print(datos.min())
+print(datos.mean())
+print(datos.max())
+print(datos.corr())
+corr=datos.corr()
 
 datos1=datos
 
